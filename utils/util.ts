@@ -58,7 +58,7 @@ export const handleUndo = ({ sigCanvas }: { sigCanvas: SigCanvas }) => {
 export const handleViewPNG = ({ sigCanvas }: { sigCanvas: SigCanvas }) => {
   const canvas = sigCanvas.current;
   if (canvas && !canvas.isEmpty()) {
-    const dataURL = canvas.toDataURL('image/png');
+    const dataURL = canvas.getTrimmedCanvas().toDataURL('image/png');
     previewImage(dataURL);
   } else {
     alert('No Data to show.');
